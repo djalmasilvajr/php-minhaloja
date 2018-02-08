@@ -1,0 +1,139 @@
+
+php --1
+php --ini
+php -S
+php -S 0.0.0.0:8080
+
+
+usuário adm
+.\suporte
+5wkwp1r@
+
+
+http://br.phptherightway.com/
+http://br.phptherightway.com/#guia_de_estilo_de_codigo
+
+
+
+https://code.visualstudio.com/#alt-downloads
+
+
+estrutura utilizada:
+C:\Trabalhos\php
+C:\desenvolvimento\php-7.2.2-nts-Win32-VC15-x64
+
+
+criar página no php chamando a função phpinfo()
+<?php
+phpinfo();
+?>
+
+copiar o conteuodo para o site https://xdebug.org/wizard.php
+este site dará instruções, observar que o site em 2 passos citará não o endereço correto da instalação do php, mas o caminho c:\php\
+
+zend_extension = C:\desenvolvimento\php-7.2.2-nts-Win32-VC15-x64\ext\php_xdebug-2.6.0-7.2-vc15-nts-x86_64.dll
+
+[XDEbug]
+xdebug.remote_enable=true
+xdebug.remote_autostart=true
+
+-------------
+
+conectar o VS Code ao debuger
+C:\desenvolvimento\VSCode-win32-x64-1.19.3\Code.exe
+
+no visual studio code :  file / open folder / c:\trabalho\php
+
+------------
+
+no navegador do google - 
+f12 -
+aba network - mostra o caminho de rede
+aba console - apresenta mensagens de erro e outras
+
+
+baixar o mysql, foi utilizado o instalador mysql-installer-community-5.7.21.0.msi
+
+Abrir a linha de comando
+cd C:\Program Files\MySQL\MySQL Server 5.7\bin\
+mysql -u root -p
+
+ou abrir o terminal de cliente do mysql 
+------------
+cd C:\Program Files\MySQL\MySQL Server 5.7\bin\
+
+C:\Program Files\MySQL\MySQL Server 5.7\bin>mysql -u root -p
+Enter password: ****
+
+create database loja;
+use loja;
+create table produto (nome varchar(255), preco decimal(10,2), descricao varchar(255), id int not null auto_increment primary key  );
+select * from produto;
+insert into produto (nome,preco,descricao) values ('Notebook',2250.55,'ASUS Super Series');
+insert into produto (nome,preco,descricao) values ('Smartphone Samsung Note 8',3750.02,'Celular  com recursos de caneta');
+
+
+------
+
+habilitar no php a extenão para o mysql:
+
+1. verificar se o arquivo php_mysqli.dll está na pasta C:\desenvolvimento\php-7.2.2-nts-Win32-VC15-x64\ext
+
+no arquivo ini do php, descomentar a linha extension=mysqli
+
+C:\desenvolvimento\php-7.2.2-nts-Win32-VC15-x64\php.ini
+
+
+-------
+
+
+configurar no php.ini os valores de conexão
+
+; Default host for mysql_connect() (doesn't apply in safe mode).
+; http://php.net/mysqli.default-host
+mysqli.default_host = localhost
+
+; Default user for mysql_connect() (doesn't apply in safe mode).
+; http://php.net/mysqli.default-user
+mysqli.default_user = root
+
+; Default password for mysqli_connect() (doesn't apply in safe mode).
+; Note that this is generally a *bad* idea to store passwords in this file.
+; *Any* user with PHP access can run 'echo get_cfg_var("mysqli.default_pw")
+; and reveal this password!  And of course, any users with read access to this
+; file will be able to reveal the password as well.
+; http://php.net/mysqli.default-pw
+mysqli.default_pw = root
+
+
+------
+observacoes-estilo de desenvolvimento-pastas rails like
+https://github.com/thebrianemory/corneal
+
+
+
+-----
+adicionando coluna no mysql
+
+use loja;
+
+alter table produto 
+add categoria_id int;
+
+alter table produto 
+add foreign key categoria_id_fk(categoria_id) 
+references categoria(id);
+
+--------------
+
+
+Microsoft Windows [versão 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\ususecap>cd C:\Program Files\MySQL\MySQL Server 5.7\bin\
+
+mysql -u root -p
+
+create table usuario (nome varchar(255), senha varchar(255), id int not null auto_increment primary key);
+insert into usuario(nome, senha) values ('operador', md5('123'));
+
